@@ -6,10 +6,7 @@ import '../models/MealDetail.dart';
 class RecipeDetailView extends StatelessWidget {
   final MealDetail meal;
 
-  const RecipeDetailView({
-    super.key,
-    required this.meal,
-  });
+  const RecipeDetailView({super.key, required this.meal});
 
   @override
   Widget build(BuildContext context) {
@@ -18,18 +15,14 @@ class RecipeDetailView extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Image.network(
-            meal.thumbnail,
-            height: 250,
-            fit: BoxFit.cover,
-          ),
+          Image.network(meal.thumbnail, height: 250, fit: BoxFit.cover),
           Padding(
             padding: const EdgeInsets.all(16.0),
             child: Text(
               meal.name,
-              style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                fontWeight: FontWeight.bold,
-              ),
+              style: Theme.of(
+                context,
+              ).textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.bold),
               textAlign: TextAlign.center,
             ),
           ),
@@ -56,9 +49,9 @@ class RecipeDetailView extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 16.0),
             child: Text(
               'Ingredients',
-              style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                fontWeight: FontWeight.bold,
-              ),
+              style: Theme.of(
+                context,
+              ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold),
             ),
           ),
           Padding(
@@ -66,9 +59,7 @@ class RecipeDetailView extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: meal.ingredients
-                  .map(
-                    (ing) => Text('• ${ing.name} - ${ing.measure}'),
-              )
+                  .map((ing) => Text('• ${ing.name} - ${ing.measure}'))
                   .toList(),
             ),
           ),
@@ -77,14 +68,16 @@ class RecipeDetailView extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 16.0),
             child: Text(
               'Instructions',
-              style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                fontWeight: FontWeight.bold,
-              ),
+              style: Theme.of(
+                context,
+              ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold),
             ),
           ),
           Padding(
-            padding:
-            const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+            padding: const EdgeInsets.symmetric(
+              horizontal: 16.0,
+              vertical: 8.0,
+            ),
             child: Text(meal.instructions),
           ),
         ],
